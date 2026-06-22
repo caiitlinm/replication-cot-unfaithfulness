@@ -59,7 +59,7 @@ BBH data is fetched automatically from the original repo at runtime. No local da
 
 | Path | Description |
 |------|-------------|
-| `notebook.ipynb` | Self-contained Colab notebook — runs the full pipeline end-to-end |
+| `notebook.ipynb` | Self-contained Colab notebook — runs the full experiment end-to-end |
 | `src/generate.py` | OpenRouter client, config, `generate()`, reasoning extraction |
 | `src/format_prompts.py` | Prompt construction (few-shot prefixes, bias injection) |
 | `src/eval.py` | Main eval loop — runs paired biased/baseline conditions |
