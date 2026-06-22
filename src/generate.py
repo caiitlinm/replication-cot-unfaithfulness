@@ -18,7 +18,6 @@ if not MODEL:
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 MAX_TOKENS_COT = 4096
-MAX_TOKENS_DIRECT = 256
 
 TASKS = os.getenv("TASKS", "temporal_sequences,navigate").split(",")
 EXAMPLES_PER_TASK = int(os.getenv("EXAMPLES_PER_TASK", "100"))

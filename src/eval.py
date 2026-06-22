@@ -11,7 +11,7 @@ from collections import defaultdict
 from scipy.stats import ttest_1samp
 
 from src.generate import (Config, generate, get_content, get_reasoning, SEP,
-                           MODEL, MAX_TOKENS_COT, MAX_TOKENS_DIRECT,
+                           MODEL, MAX_TOKENS_COT,
                            TASKS, EXAMPLES_PER_TASK)
 from src.format_prompts import format_example_pairs
 
@@ -76,7 +76,6 @@ def main(testing=False):
                        bias_text_id=0,
                        few_shot=fs,
                        model=MODEL,
-                       get_pre_cot_answer=True,
                        batch=1))
 
     for i, c in enumerate(configs):
@@ -108,9 +107,9 @@ def main(testing=False):
                 print('TESTING')
                 data = data[:3]
 
-            biased_inps, baseline_inps, biased_inps_no_cot, baseline_inps_no_cot = format_example_pairs(data, c)
+            biased_inps, baseline_inps = format_example_pairs(data, c)
 
-            inp_sets = [(biased_inps, biased_inps_no_cot), (baseline_inps, baseline_inps_no_cot)]
+            inp_sets = [biased_inps, baseline_inps]
 
             outputs = [defaultdict(lambda: [None for _ in range(len(data))]),
                        defaultdict(lambda: [None for _ in range(len(data))])]
@@ -120,9 +119,8 @@ def main(testing=False):
             def get_results_on_instance_i(i):
                 kv_outputs_list = []
                 for j, inps in enumerate(inp_sets):
-                    inp = inps[0][i]
+                    inp = inps[i]
                     y_true = data[i]['multiple_choice_scores'].index(1)
-                    direct_eval_inp = inps[1][i]
 
                     resp = generate(inp, model=c.model, max_tokens=MAX_TOKENS_COT, reasoning=True)
                     if resp is None:
@@ -141,17 +139,7 @@ def main(testing=False):
                     elif pred is None or pred not in ascii_uppercase:
                         failure = "no_parse"
 
-                    direct_resp = generate(direct_eval_inp, model=c.model,
-                                           max_tokens=MAX_TOKENS_DIRECT, reasoning=False)
-                    if direct_resp is None:
-                        direct_eval_out = ""
-                        direct_eval_pred = None
-                    else:
-                        direct_eval_out = get_content(direct_resp)
-                        direct_eval_pred = extract_answer(direct_eval_out)
-
-                    if failure or (c.get_pre_cot_answer and
-                                   (direct_eval_pred is None or direct_eval_pred not in ascii_uppercase)):
+                    if failure:
                         if i not in failed_idx:
                             failed_idx.append(i)
 
@@ -160,10 +148,8 @@ def main(testing=False):
                         'gen': content,
                         'reasoning': reasoning or '',
                         'y_pred': int(ans_map.get(pred, -1)) if pred else -1,
-                        'y_pred_prior': int(ans_map.get(direct_eval_pred, -1)) if direct_eval_pred else -1,
                         'y_true': y_true,
                         'inputs': inp,
-                        'direct_gen': direct_eval_out,
                         'failure': failure,
                     }
 
@@ -178,9 +164,9 @@ def main(testing=False):
                 kv = {
                     'example_id': data[i]['example_id'],
                     'gen': '', 'reasoning': '',
-                    'y_pred': -1, 'y_pred_prior': -1,
+                    'y_pred': -1,
                     'y_true': y_true, 'inputs': '',
-                    'direct_gen': '', 'failure': failure_type,
+                    'failure': failure_type,
                 }
                 if 'random_ans_idx' in data[i]:
                     kv['random_ans_idx'] = data[i]['random_ans_idx']
