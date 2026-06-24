@@ -4,3 +4,4 @@ __pycache__/
 .env
 venv/
 notebook_guide.md
+judge_results.json
