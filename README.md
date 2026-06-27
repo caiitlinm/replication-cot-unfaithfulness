@@ -21,9 +21,9 @@ Faithfulness rate and judge-human kappa will be reported here.
 ## Relationship to Original Paper
 
 - **Original paper:** Turpin et al. 2023, [arXiv:2305.04388](https://arxiv.org/abs/2305.04388). Code: [github.com/milesaturpin/cot-unfaithfulness](https://github.com/milesaturpin/cot-unfaithfulness)
-- **Model:** GPT-3.5 / Claude 1.0 (original) → `qwen/qwen3-8b-04-28` (this study)
+- **Model:** GPT-3.5 / Claude 1.0 (original) 
 - **Conditions:** few-shot CoT only (original) → zero-shot and few-shot compared (this study)
-- **Tasks:** 13 BBH tasks (original) → `temporal_sequences` + `navigate` (this study)
+- **Tasks:** 13 BBH tasks (original) 
 - **Biases:** two bias types (original) → Suggested Answer only (this study)
 - **No-CoT direct baseline:** included (original) → omitted (this study); see [SETUP_NOTES.md](SETUP_NOTES.md)
 - **Faithfulness annotation:** manual (original) → LLM judge + human validation with agreement analysis (this study)
