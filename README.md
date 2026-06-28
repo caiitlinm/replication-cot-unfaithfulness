@@ -21,6 +21,7 @@ We find that accuracy drops are notable across almost every category, and few-sh
 - **Biases:** two bias types (original) → Suggested Answer only (this study)
 - **No-CoT direct baseline:** included (original) → omitted (this study); see [SETUP_NOTES.md](SETUP_NOTES.md)
 - **Faithfulness annotation:** manual (original)
+- **LLM-as-Judge** GPT-4o annotates CoT according to the criteria in Turpin et al. for further exploration; the focus of this study is replicating suggested-answer biased flips
 
 ## Experimental Design
 
