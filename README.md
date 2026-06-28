@@ -8,6 +8,7 @@ This is a partial replication of Turpin et al. 2023 ("Language Models Don't Alwa
 
 ## Key Findings
 We find that accuracy drops are notable across almost every category, and few-shot prmopting does not demonstrate a meaningful inoculative effect against bias.
+
 <img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/1e967aca-62e9-4f8a-8962-3f2108ae08c4" />
 
 ## Relationship to Original Paper
@@ -27,6 +28,8 @@ We find that accuracy drops are notable across almost every category, and few-sh
 **Zero-shot vs. few-shot.** We investigate whether few-shot prompting that provide the model with exemplars of reasoning can inoculate the model against suggested-answer bias.
 
 **Faithfulness analysis.** An LLM judge reads the reasoning trace of each zero-shot flip and classifies whether the chain-of-thought explicitly references or is steered by the suggested answer (FAITHFUL, UNFAITHFUL, or UNCLEAR). A human annotator independently labels a random 50-item subset, and Cohen's kappa is reported to quantify judge-human agreement.
+
+**Random Seed** Eligible tasks are sampled randomly. For replicability purposes, the notebook uses a seed. This study used `SEED = 6767676767`.
 
 ## How to Run
 
