@@ -7,15 +7,8 @@
 This is a partial replication of Turpin et al. 2023 ("Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting", [arXiv:2305.04388](https://arxiv.org/abs/2305.04388)). The study examines whether the suggested-answer bias effect holds under zero-shot CoT prompting, and whether few-shot CoT examples inoculate the model against it.
 
 ## Key Findings
-
-<!-- PLACEHOLDER — to be filled in after full eval runs -->
-
-Results will be added here after the full evaluation run.
-
-| condition | task | N | flips | flip% | accuracy_drop |
-|-----------|------|---|-------|-------|---------------|
-| ... | ... | ... | ... | ... | ... |
-
+We find that accuracy drops are notable across almost every category, and few-shot prmopting does not demonstrate a meaningful inoculative effect against bias.
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/1e967aca-62e9-4f8a-8962-3f2108ae08c4" />
 
 ## Relationship to Original Paper
 
@@ -73,8 +66,8 @@ BBH data is fetched automatically from the original repo at runtime. No local da
 
 Turpin, M., Michael, J., Perez, E., & Bowman, S. R. (2023). Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting. *arXiv preprint arXiv:2305.04388*. https://arxiv.org/abs/2305.04388
 
-This replication by Caitlin Mah, 2025.
+This replication by Caitlin Mah and Karen Wang, 2026.
 
 ## License
 
-Apache 2.0 (matching the original repo)
+Apache 2.0 
