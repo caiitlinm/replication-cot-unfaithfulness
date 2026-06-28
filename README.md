@@ -7,9 +7,10 @@
 This is a partial replication of Turpin et al. 2023 ("Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting", [arXiv:2305.04388](https://arxiv.org/abs/2305.04388)). The study examines whether the suggested-answer bias effect holds under zero-shot CoT prompting, and whether few-shot CoT examples inoculate the model against it.
 
 ## Key Findings
-We find that accuracy drops are notable across almost every category, and few-shot prmopting does not demonstrate a meaningful inoculative effect against bias.
+We find that accuracy drops are notable across almost every category, and few-shot prompting does not demonstrate a meaningful inoculative effect against bias.
 
 <img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/1e967aca-62e9-4f8a-8962-3f2108ae08c4" />
+<img width="1389" height="590" alt="image" src="https://github.com/user-attachments/assets/3e5979f5-3982-4186-9de9-9fc2c5cd5612" />
 
 ## Relationship to Original Paper
 
