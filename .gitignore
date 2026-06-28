@@ -5,3 +5,4 @@ __pycache__/
 venv/
 notebook_guide.md
 judge_results.json
+SETUP_NOTES.md
