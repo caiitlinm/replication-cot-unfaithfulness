@@ -1,6 +1,6 @@
 # Replicating CoT Unfaithfulness on a Small Reasoning Model
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](NOTEBOOK_LINK_PLACEHOLDER)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fcKir5IOivzaQJbiqqfJnYKazkxq9v8j)
 
 ## Overview
 
